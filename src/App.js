@@ -1,10 +1,8 @@
-import logo from './logo.svg';
-import './App.css';
+import Maintanancescreen from "./Component/Maintanancescreen";
+
 
 function App() {
-  return (
-  <></>
-  );
+  return <Maintanancescreen />;
 }
 
 export default App;
