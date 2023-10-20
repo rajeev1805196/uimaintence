@@ -1,38 +1,33 @@
-.App {
+.Header label{
+  font-size: 12px;
+}
+.Header .form-select {
+  font-size: 11px;
+}
+.Header input{
+  font-size: 11px;
+}
+.go2150698616{
+  border-bottom: 6px solid #33C3F0 !important;
+  display: inline-block;
   text-align: center;
+  line-height: 4.6rem !important;
+  padding: 0 1rem !important;
+  cursor: pointer;
+  min-width: 33% !important;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.card-body {
+  
+  background: #00000014;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.column-info{
+  width: 1500px;
+  overflow-x: scroll;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.switch-group{
+  background: #fff;
 }
+.switch-handle {
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+  background-color: #787a7a !important;
 }
