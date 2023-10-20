@@ -60,9 +60,11 @@ export default function ColumnInfo() {
                                                 <Form.Label>CONTROL TYPE</Form.Label>
                                                 <Form.Select aria-label="Default select example">
                                                     <option>Text</option>
-                                                    <option>select</option>
+                                                    <option>Date</option>
                                                     <option>Dcombo</option>
                                                     <option>Combo</option>
+                                                    <option>Email</option>
+                                                    <option>Number</option>
                                                 </Form.Select>
                                             </Form.Group>
                                         </Col>
@@ -141,13 +143,21 @@ export default function ColumnInfo() {
                                         <Col md={3}>
                                             <Form.Group controlId="formBasicEmail" className="text-start my-2">
                                                 <Form.Label>SHOW LIST COL ALIGN</Form.Label>
-                                                <Form.Control type="text" placeholder=" " />
+                                                <Form.Select aria-label="Default select example">
+                                                    <option value={"LEFT"}>Left</option>
+                                                    <option value={"RIGHT"}>Right</option>
+                                                    <option value={"CENTER"}>Center</option>
+                                                </Form.Select>
                                             </Form.Group>
                                         </Col>
                                         <Col md={3}>
                                             <Form.Group controlId="formBasicEmail" className="text-start my-2">
                                                 <Form.Label>SHOW LIST HEAD ALIGN</Form.Label>
-                                                <Form.Control type="text" placeholder=" " />
+                                                <Form.Select aria-label="Default select example">
+                                                    <option value={"LEFT"}>Left</option>
+                                                    <option value={"RIGHT"}>Right</option>
+                                                    <option value={"CENTER"}>Center</option>
+                                                </Form.Select>
                                             </Form.Group>
                                         </Col>
                                         <Col md={3}>
@@ -425,8 +435,8 @@ export default function ColumnInfo() {
 
                  <button onClick={handleAddClick}>Add</button>
                 {/* <div style={{ marginTop: 20 }}>{JSON.stringify(inputList)}</div> */}
-            </Container >
-        </div >
+            </Container>
+        </div> 
     );
 }
 
