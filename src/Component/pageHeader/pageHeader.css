@@ -1,0 +1,10 @@
+.headerFlags{
+    border: 1px solid #eaeeea;
+    border-radius: 10px;
+    padding: 10px 14px;
+    box-shadow: -1px 3px 5px 4px #ccc;
+}
+
+.headerFlags .form-label{
+    font-size: 12px;
+}

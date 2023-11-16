@@ -8,11 +8,88 @@ import Inputdata from "../Components/input"
 import SelectData from "../Components/select"
 import Form from 'react-bootstrap/Form';
 import BootstrapSwitchButton from 'bootstrap-switch-button-react'
+import Table from 'react-bootstrap/Table';
+import TextInformation from "./textInformation";
 
-
+const headers =[
+    "CONTROL TYPE",
+    "DBCOL NAME",
+    "COLUMN HDR LABEL",
+    "SHOW HDR ROWNO",
+    "SHOW HDR COLUMNSEQ",
+    "SHOW HDR LABEL WIDTH",
+    "SHOW HDR CONTROL WIDTH",
+    "DATATYPE",
+    "DATALENGTH",
+    "DEFAULT VAL",
+    "SHOW LIST SEQ",
+    "SHOW LIST COL WIDTH",
+    "SHOW LIST LABEL",
+    "SHOW LIST COL ALIGN",
+    "SHOW LIST HEAD ALIGN",
+    "SORT EXPRESSION",
+    "COLUMN URL",
+    "COLUMN COLUMNAME",
+    "DB COL FLAG",
+    "ENCRYPTION FLAG",
+    "INSERT FLAG",
+    "PK FLAG",
+    "REQUIRED FLAG",
+    "SEARCH FLG",
+    "SHOW LIST",
+    "SHOW HDR",
+    "SEQ FLAG",
+    "SORT FLAG",
+    "SEND PARAMETER",
+    "SESSION VALUE",
+    "T UPPER",
+    "UNIQUE FLAG",
+    "UPDATE FLG",
+    "XML PARAM SEND",
+    "XLSX COL FLAG"
+];
 export default function ColumnInfo() {
     const [inputList, setInputList] = useState([{ firstName: "", lastName: "" }]);
     const [ChooseFile, setChooseFile] = useState('')
+    const [state, setState] = useState(
+        [{
+            "CONTROL_TYPE": 'dfdsg',
+            "DBCOL_NAME": 'sdgsd',
+            "COLUMN_HDR_LABEL": 'gsdgsd',
+            "SHOW_HDR_ROWNO": "sdgsd",
+            "SHOW_HDR_COLUMNSEQ": 'sdsdg',
+            "SHOW_HDR_LABEL_WIDTH": 'sdgsd',
+            "SHOW_HDR_CONTROL_WIDTH": 'sdgds',
+            "DATATYPE": 'gsgdsd',
+            "DATALENGTH": 'sdsg',
+            "DEFAULT_VAL": 'sdsg',
+            "SHOW_LIST_SEQ": 'dsd',
+            "SHOW_LIST_COL_WIDTH": 'gsg',
+            "SHOW_LIST_LABEL": 'gsdd',
+            "SHOW_LIST_COL_ALIGN": 'sdgs',
+            "SHOW_LIST_HEAD_ALIGN": 'sdg',
+            "SORT_EXPRESSION": 'sdg',
+            "COLUMN_URL": 'sgsdg',
+            "COLUMN_COLUMNAME": 'dgsds',
+            "DB_COL_FLAG" :'N',
+            "ENCRYPTION_FLAG": 'N',
+            "INSERT_FLAG":'N',
+            "PK_FLAG":'N',
+            "REQUIRED_FLAG":'N',
+            "SEARCH_FLG":'N',
+            "SHOW_LIST":'N',
+            "SHOW_HDR":'N',
+            "SEQ_FLAG":'N',
+            "SORT_FLAG":'N',
+            "SEND_PARAMETER":'N',
+            "SESSION_VALUE":'N',
+            "T_UPPER":'N',
+            "UNIQUE_FLAG":'N',
+            "UPDATE_FLG":'N',
+            "XML_PARAM_SEND":"N",
+            "XLSX_COL_FLAG":'N',
+        }]
+    )
     // handle input change
     const handleInputChange = (e, index) => {
         const { name, value } = e.target;
@@ -40,12 +117,12 @@ export default function ColumnInfo() {
         setInputList([  inputList ]);
     };
     return (
-        <div className="App">
+        <div className="App Header">
             <Container>
-                <button onClick={handleAddClick3} className="my-3">reset</button>
+                {/* <button onClick={handleAddClick3} className="my-3">reset</button> */}
              
                 {inputList.map((x, i) => {
-                    return (
+                    return (<>
                         <Card style={{ width: '100%' }} className="my-3">
                             <Card.Body>
                                 <div className=" text-end ">
@@ -54,17 +131,16 @@ export default function ColumnInfo() {
                                         onClick={() => handleRemoveClick(i)}>Remove</button>}
                                 </div>
                                 <form className="container mt-3 mb-3">
+                                <h4>Column Information</h4>
                                     <Row >
                                         <Col md={3}>
                                             <Form.Group controlId="formBasicEmail" className="text-start my-2">
                                                 <Form.Label>CONTROL TYPE</Form.Label>
                                                 <Form.Select aria-label="Default select example">
                                                     <option>Text</option>
-                                                    <option>Date</option>
+                                                    <option>select</option>
                                                     <option>Dcombo</option>
                                                     <option>Combo</option>
-                                                    <option>Email</option>
-                                                    <option>Number</option>
                                                 </Form.Select>
                                             </Form.Group>
                                         </Col>
@@ -143,21 +219,13 @@ export default function ColumnInfo() {
                                         <Col md={3}>
                                             <Form.Group controlId="formBasicEmail" className="text-start my-2">
                                                 <Form.Label>SHOW LIST COL ALIGN</Form.Label>
-                                                <Form.Select aria-label="Default select example">
-                                                    <option value={"LEFT"}>Left</option>
-                                                    <option value={"RIGHT"}>Right</option>
-                                                    <option value={"CENTER"}>Center</option>
-                                                </Form.Select>
+                                                <Form.Control type="text" placeholder=" " />
                                             </Form.Group>
                                         </Col>
                                         <Col md={3}>
                                             <Form.Group controlId="formBasicEmail" className="text-start my-2">
                                                 <Form.Label>SHOW LIST HEAD ALIGN</Form.Label>
-                                                <Form.Select aria-label="Default select example">
-                                                    <option value={"LEFT"}>Left</option>
-                                                    <option value={"RIGHT"}>Right</option>
-                                                    <option value={"CENTER"}>Center</option>
-                                                </Form.Select>
+                                                <Form.Control type="text" placeholder=" " />
                                             </Form.Group>
                                         </Col>
                                         <Col md={3}>
@@ -180,7 +248,7 @@ export default function ColumnInfo() {
                                         </Col>
                                         
                                     </Row>
-                                    <Row >
+                                    {/* <Row>
                                         <Col md={12}>
                                             <h3>Flags</h3>
                                         </Col>
@@ -424,19 +492,55 @@ export default function ColumnInfo() {
                                                     />
                                             </Form.Group>
                                         </Col>
-                                    </Row>
+                                    </Row> */}
                                 </form>
                             </Card.Body>
                         </Card>
+                        
+                        <TextInformation tableData={state}/>
 
-
+                        {/* <Card style={{ width: '100%' }} className="my-3">
+                            <Card.Body>
+                                    <h1>table</h1>
+                                    <Table responsive className="column-info">
+                                        <thead>
+                                            <tr>
+                                                <th>#</th>
+                                                {headers.map((data, index) => (
+                                                    <th key={index} style={{whiteSpace: "nowrap"}}>{data}</th>
+                                                ))}
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>1</td>
+                                                {Array.from({ length: 12 }).map((_, index) => (
+                                                    <td key={index}>Table cell {index}</td>
+                                                ))}
+                                            </tr>
+                                            <tr>
+                                                <td>2</td>
+                                                {Array.from({ length: 12 }).map((_, index) => (
+                                                    <td key={index}>Table cell {index}</td>
+                                                ))}
+                                            </tr>
+                                            <tr>
+                                                <td>3</td>
+                                                {Array.from({ length: 12 }).map((_, index) => (
+                                                    <td key={index}>Table cell {index}</td>
+                                                ))}
+                                            </tr>
+                                        </tbody>
+                                    </Table>
+                            </Card.Body>
+                        </Card> */}
+                    </>
                     );
                 })}
 
-                 <button onClick={handleAddClick}>Add</button>
-                {/* <div style={{ marginTop: 20 }}>{JSON.stringify(inputList)}</div> */}
+              
             </Container>
-        </div> 
+        </div>
     );
 }
 
